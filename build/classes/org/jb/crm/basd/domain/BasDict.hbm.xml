@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.basd.domain">
+	<class name="BasDict" table="bas_dict" >
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="dictType" column="dict_type"  length="50"/>
+		<property name="dictItem" column="dict_item" length="50"/>
+		<property name="dictValue" column="dict_value" length="50"/>
+		<property name="dictIsEditable" column="dict_is_editable" />
+
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+	
+	</class>
+	
+</hibernate-mapping>

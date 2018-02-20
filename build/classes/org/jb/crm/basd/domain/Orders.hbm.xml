@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.basd.domain">
+	<class name="Orders" table="orders">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+
+		<property name="odrCustomer" column="odr_customer"  not-null="true" length="100"/>
+		<property name="odrDate" column="odr_date"  not-null="true" />
+		<property name="odrAddr" column="odr_addr"  length="200"/>
+		<property name="odrStatus" column="odr_status"  not-null="true" length="1"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time" ></property>
+		<set name="ordersLines" inverse="true">
+			<key column="odd_order_id" ></key>
+			<one-to-many class="OrdersLine" ></one-to-many>
+		</set>
+		
+	</class>
+	
+</hibernate-mapping>

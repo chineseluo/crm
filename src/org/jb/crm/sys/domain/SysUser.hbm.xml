@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.sys.domain">
+	<class name="SysUser" table="sys_user">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="usrName" column="usr_name" />
+		<property name="usrPassword" column="usr_password"/>
+		<property name="usrFlag" column="usr_flag"></property>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="sysRole" column="usr_role_id" class="SysRole"/>
+	</class>
+	
+</hibernate-mapping>

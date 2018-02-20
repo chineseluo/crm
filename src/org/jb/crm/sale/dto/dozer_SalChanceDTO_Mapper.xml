@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net  
+           http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.jb.crm.sale.domain.SalChance</class-a>
+		<class-b>org.jb.crm.sale.dto.SalChanceDTO</class-b>
+
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>
+
+		<field>
+			<a>chcSource</a>
+			<b>chcSource</b>
+		</field>
+		<field>
+			<a>chcCustName</a>
+			<b>chcCustName</b>
+		</field>
+			<field>
+			<a>chcTitle</a>
+			<b>chcTitle</b>
+		</field>
+		<field>
+			<a>chcRate</a>
+			<b>chcRate</b>
+		</field>
+		<field>
+			<a>chcLinkMan</a>
+			<b>chcLinkMan</b>
+		</field>
+		<field>
+			<a>chcTel</a>
+			<b>chcTel</b>
+		</field>
+		<field>
+			<a>chcDesc</a>
+			<b>chcDesc</b>
+		</field>
+		<field>
+			<a>chcCreateBy</a>
+			<b>chcCreateBy</b>
+		</field>
+		<field>
+			<a>chcCreateDate</a>
+			<b>chcCreateDate</b>
+		</field>
+		<field>
+			<a>chcDueTo</a>
+			<b>chcDueTo</b>
+		</field>
+		<field>
+			<a>chcDueDate</a>
+			<b>chcDueDate</b>
+		</field>
+		<field>
+			<a>chcStatus</a>
+			<b>chcStatus</b>
+		</field>
+		<field>
+			<a>createUser</a>
+			<b>createUserDTO</b>
+		</field>
+		<field>
+			<a>dueUser</a>
+			<b>dueUserDTO</b>
+		</field>
+
+		<field>
+			<a>lastOperatorTime</a>
+			<b>lastOperatorTime</b>
+		</field>
+
+	</mapping>
+</mappings>  
+

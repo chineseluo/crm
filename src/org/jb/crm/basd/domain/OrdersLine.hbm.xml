@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.basd.domain">
+	<class name="OrdersLine" table="orders_line">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="oddCount" column="odd_count"  not-null="true" />
+		<property name="oddUnit" column="odd_unit"  length="50"/>
+		<property name="oddPrice" column="odd_price" />						
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="orders" column="odd_order_id" class="Orders"></many-to-one>
+		<many-to-one name="product" column="odd_prod_id" class="Product"></many-to-one>
+	</class>
+	
+</hibernate-mapping>

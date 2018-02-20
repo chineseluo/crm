@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="sale" namespace="/sale" extends="default">
+	<!-- salChance -->
+		<action name="loadAllSalChanceAction" class="salChanceAction" method="loadAllSalChance">
+			<result name="success">/~sale/list.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		<action name ="addSalChanceAction" class="salChanceAction" method ="addSalChance">
+			<result name="success" type="redirectAction">loadAllSalChanceAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name ="deleteSalChanceAction" class="salChanceAction" method ="deleteSalChance">
+			<result name="success" type="redirectAction">loadAllSalChanceAction</result>
+			<result name="error" type="redirect">/no_right_del.jsp</result>
+		</action>
+	
+		<action name="loadSalChanceByIdAction" class="salChanceAction" method="loadSalChanceById">
+			<result name="success">/~sale/edit.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+	
+		<action name ="eidtSalChanceAction" class="salChanceAction" method ="updateSalChance">
+			<result name="success" type="redirectAction">loadAllSalChanceAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="dispatchSalChanceAction" class="salChanceAction" method="loadSalChanceById">
+			<result name="success">/~sale/dispatch.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="saveDispatchSalChanceAction" class="salChanceAction" method="saveDispatchSalChance">
+			<result name="success" type="redirectAction">loadAllSalChanceAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		
+		<action name="stopSalPlanAction" class="salChanceAction" method="stopSalPlan">
+			<result name="success" type="redirectAction">loadAllDispatcheSalChanceAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<!-- salPlan -->
+		
+		<action name="loadAllDispatcheSalChanceAction" class="salChanceAction" method="loadAllDispatcheSalChance">
+			<result name="success">/~sale/dev.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="developmentPlanAction" class="salPlanAction" method="findDispatchSalChanceAndSalPlanById">
+			<result name="success">/~sale/dev_plan.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		<action name="savePlanAction" class="salPlanAction" method="savePlan">
+			<result name="success" type="chain">developmentPlanAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		<action name="updateSalPlanAction" class="salPlanAction" method="updateSalPlan">
+			<result name="success" type="chain">developmentPlanAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		<action name="deleteSalPlanAction" class="salPlanAction" method="deleteSalPlan">
+			<result name="success" type="chain">developmentPlanAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		<action name="executeSalPlanAction" class="salPlanAction" method="findDispatchSalChanceAndSalPlanById">
+			<result name="success" >/~sale/dev_execute.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		
+		
+		<action name="saveExecutePlanAction" class="salPlanAction" method="saveExecutePlanResult">
+			<result name="success" type="chain">executeSalPlanAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="developmentSuccessAction" class="salPlanAction" method="developmentSuccess">
+			<result name="success" type="chain">loadAllDispatcheSalChanceAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+
+		<action name="viewTheFalseSalchanceAction" class="salPlanAction" method="findDispatchSalChanceAndSalPlanById">
+			<result name="success">/~sale/dev_detail.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

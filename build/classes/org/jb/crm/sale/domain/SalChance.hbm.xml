@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.sale.domain">
+	<class name="SalChance" table="sal_chance">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="chcSource" column="chc_source" length="50"/>
+		<property name="chcCustName" column="chc_cust_name" length="100" not-null="true"/>
+		<property name="chcTitle" column="chc_title" length="200" not-null="true"/>
+		<property name="chcRate" column="chc_rate" not-null="true"/>
+		<property name="chcLinkMan" column="chc_linkman" length ="50"/>
+		<property name="chcTel" column="chc_tel" length ="50"/>
+		<property name="chcDesc" column="chc_desc" length="2000" not-null="true"/>
+		<property name="chcCreateBy" column="chc_create_by" length="50" not-null="true"/>
+		<property name="chcCreateDate" column="chc_create_date" not-null="true"/>
+		<property name="chcDueTo" column="chc_due_to" length="50"/>
+		<property name="chcDueDate" column="chc_due_date"/>
+		<property name="chcStatus" column="chc_status" length="10" not-null="true"/>
+		
+		
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="createUser" column="chc_create_id" class="org.jb.crm.sys.domain.SysUser"/>
+		<many-to-one name="dueUser" column="chc_due_id" class="org.jb.crm.sys.domain.SysUser"/>
+		
+		
+		
+		
+		
+		
+		
+	</class>
+	
+</hibernate-mapping>

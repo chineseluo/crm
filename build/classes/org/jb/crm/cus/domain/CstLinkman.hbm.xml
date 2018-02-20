@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.cus.domain">
+	<class name="CstLinkman" table="cst_linkman">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="lkmCustName" column="lkm_cust_name" type="java.lang.String" length="100"/>
+		<property name="lkmName" column="lkm_name" type="java.lang.String" length="50"/>
+		<property name="lkmSex" column="lkm_sex" type="java.lang.String" length="5"/>
+		<property name="lkmPostion" column="lkm_postion" type="java.lang.String" length="50"/>
+		<property name="lkmTel" column="lkm_tel" type="java.lang.String" length="50"/>
+		<property name="lkmMobile" column="lkm_mobile" type="java.lang.String" length="50" />
+		<property name="lkmMemo" column="lkm_memo" type="java.lang.String" length="300"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="cstCustomer" column="lkm_cust_id" class="CstCustomer"/> 
+	</class>
+	
+</hibernate-mapping>

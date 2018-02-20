@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="rept" namespace="/rept" extends="default">
+		<action name="loadAllInstantCustomerAction" class="instantCustomerAction" method="loadAllInstantCustomer">
+			<result name="success">/~rept/contr.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="loadAllCustConsAction" class="instantCustomerAction" method="loadAllCustCons">
+			<result name="success">/~rept/cons.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="loadAllInstantCustomerServiceAction" class="instantCustomerAction" method="loadAllInstantCustomerService">
+			<result name="success">/~rept/ser.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="loadAllInstantCustomerLostAction" class="instantCustomerAction" method="loadAllInstantCustomerLost">
+			<result name="success">/~rept/lost.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

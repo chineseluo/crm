@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="show_sql">true</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 权限模块 -->
+		<mapping resource="org/jb/crm/sys/domain/SysRight.hbm.xml" />
+		<mapping resource="org/jb/crm/sys/domain/SysRole.hbm.xml" />
+		<mapping resource="org/jb/crm/sys/domain/SysUser.hbm.xml" />
+
+		
+		<!-- 营销模块 -->
+		<mapping resource="org/jb/crm/sale/domain/SalChance.hbm.xml" />
+		<mapping resource="org/jb/crm/sale/domain/SalPlan.hbm.xml" />
+
+
+		<mapping resource="org/jb/crm/cus/domain/CstCustomer.hbm.xml" />
+		<mapping resource="org/jb/crm/cus/domain/CstLinkman.hbm.xml" />
+		<mapping resource="org/jb/crm/cus/domain/CstActivity.hbm.xml" />
+		
+
+		<mapping resource="org/jb/crm/cus/domain/CstLost.hbm.xml" />
+		<mapping resource="org/jb/crm/service/domain/CstService.hbm.xml" />
+		
+		<!-- 基础数据 -->
+		<mapping resource="org/jb/crm/basd/domain/BasDict.hbm.xml"/>
+		<mapping resource="org/jb/crm/basd/domain/Storage.hbm.xml"/>
+		<mapping resource="org/jb/crm/basd/domain/Product.hbm.xml"/>
+		<mapping resource="org/jb/crm/basd/domain/Orders.hbm.xml"/>
+		<mapping resource="org/jb/crm/basd/domain/OrdersLine.hbm.xml"/>
+		
+
+	</session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.service.domain">
+	<class name="CstService" table="cst_service">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="svrTitle" column="svr_title" length="500" />
+		<property name="svrCustName" column="svr_cust_name" length="100" not-null="true"/>
+		<property name="svrStatus" column="svr_status" length="10" not-null="true"/>
+		<property name="svrRequest" column="svr_request" length="3000" not-null="true"/>
+		<property name="svrCreateBy" column="svr_create_by" length="50" not-null="true"/>
+		<property name="svrCreateDate" column="svr_create_date" not-null="true"/>
+		<property name="svrDueTo" column="svr_due_to" length="50"/>
+		<property name="svrDueDate" column="svr_due_date" />
+		<property name="svrDeal" column="svr_deal" length="3000"/>
+		<property name="svrDealBy" column="svr_deal_by" length="50"/>
+		<property name="svrDealDate" column="svr_deal_date" />
+		<property name="svrResult" column="svr_result" length="500"/>
+		<property name="svrSatisfy" column="svr_satisfy"/>
+
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="svrCustomer" column="svr_cust_id" class="org.jb.crm.cus.domain.CstCustomer"/>
+		<many-to-one name="svrType" column="svr_type" class="org.jb.crm.basd.domain.BasDict" not-null="true"/>
+		<many-to-one name="svrDue" column="svr_due_id" class="org.jb.crm.sys.domain.SysUser"/>
+		<many-to-one name="svrDealer" column="svr_deal_id" class="org.jb.crm.sys.domain.SysUser"/>
+		<many-to-one name="svrCreator" column="svr_create_id" class="org.jb.crm.sys.domain.SysUser" not-null="true"/>
+	</class>
+</hibernate-mapping>

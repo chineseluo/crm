@@ -1,0 +1,301 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+    font-family: '微软雅黑','宋体',arial,sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+* html .clearfix {
+    height: 1%;
+}
+img {
+    border: medium none;
+}
+ul, li, h1, p {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.header_wrap {
+	background-color:#42536d;
+    height: 109px;
+    padding-top: 20px;
+    width: 1440px;
+}
+/*
+.header {
+    height: 109px;
+    margin: 0 auto;
+    position: relative;
+    width: 980px;
+}
+*/
+.header .nav {
+    font-size: 14px;
+    left: 335px;
+    position: absolute;
+    top: 36px;
+}
+.header .nav ul {
+    float: left;
+}
+.header .nav ul li {
+    color: #4F6F8C;
+    float: left;
+    height: 25px;
+    margin-right: 40px;
+}
+.header .nav ul li a {
+    display: block;
+    float: left;
+    height: 25px;
+}
+.header .nav ul li a:link {
+    color: #4F6F8C;
+    text-decoration: none;
+}
+.header .nav ul li a:visited {
+    color: #4F6F8C;
+    text-decoration: none;
+}
+.header .nav ul li a:hover {
+    border-bottom: 3px solid #4189D2;
+    color: #6E9C11;
+    text-decoration: none;
+}
+.header .nav ul li.selected a {
+    border-bottom: 3px solid #4189D2;
+}
+.header .nav ul li.selected a:link {
+    color: #6E9C11;
+    text-decoration: none;
+}
+.header .nav ul li.selected a:visited {
+    color: #6E9C11;
+    text-decoration: none;
+}
+.header .nav ul li.selected a:hover {
+    color: #6E9C11;
+    text-decoration: none;
+}
+.header .action {
+    color: #4F6F8C;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.header .action a:link {
+    color: #4F6F8C;
+    text-decoration: none;
+}
+.header .action a:visited {
+    color: #4F6F8C;
+    text-decoration: none;
+}
+.header .action a:hover {
+    color: #4F6F8C;
+    text-decoration: underline;
+}
+.header .guanzhu {
+    color: #4F6F8C;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 120px;
+}
+.header .guanzhu a {
+    display: block;
+    float: left;
+    height: 25px;
+}
+.header .guanzhu a.sina_icon, .header .guanzhu a.weibo_icon {
+    height: 22px;
+    padding-top: 3px;
+    position: absolute;
+}
+.header .guanzhu a.sina_icon {
+    left: 65px;
+    top: 0;
+}
+.header .guanzhu a.weibo_icon {
+    left: 97px;
+    top: 0;
+}
+.header .back_index {
+    height: 90px;
+    line-height: 90px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.header .back_index a:link {
+    color: #4F6F8C;
+    text-decoration: none;
+}
+.header .back_index a:visited {
+    color: #4F6F8C;
+    text-decoration: none;
+}
+.header .back_index a:hover {
+    color: #4F6F8C;
+    text-decoration: underline;
+}
+.footer_wrap {
+	background-color:#42536d;
+    height: 150px;
+    width:1440px;
+}
+.login_main_wrap {
+	height:495px;
+	background:url("../images/login_bg.jpg") no-repeat scroll 0 0 #FFFFFF;
+	background-color:#FFF;
+    width: 1440px;
+}
+.login_main {
+	
+    height: 305px;
+    margin: 0 auto;
+    padding: 150px 0px;
+	padding-right:100px;
+    width: 980px;
+}
+.login_main input {
+    border: 1px solid #FFFFFF;
+    color: #BCBCBC;
+    float: left;
+    height: 48px;
+    line-height: 48px;
+    margin: 0;
+    padding: 0;
+}
+.login_main .input_border {
+    border: 1px solid #BABABA;
+    height: 50px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+.login_main .input_border.selected {
+    border: 1px solid #FBB400;
+}
+.login_main .input_border.selected input {
+    border-color: #FBB400 #FFFFFF #FFFFFF #FBB400;
+    border-style: solid;
+    border-width: 1px;
+}
+.login_main input.user_name, .login_main input.user_pwd {
+    padding-left: 65px;
+    width: 233px;
+}
+.login_main input.user_name {
+    background: url("../images/user_name_bg.gif") no-repeat scroll 0 8px #FFFFFF;
+}
+.login_main input.user_pwd {
+    background: url("../images/user_pwd_bg.gif") no-repeat scroll 0 8px #FFFFFF;
+}
+.login_main input.user_name_input {
+    background: url("../images/user_name_bg.gif") no-repeat scroll 0 8px #FFFFFF;
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 65px;
+    width: 233px;
+}
+.login_main input.user_pwd_input {
+    background: url("../images/user_pwd_bg.gif") no-repeat scroll 0 8px #FFFFFF;
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 65px;
+    width: 233px;
+}
+.login_main .check_num_input_border {
+    float: left;
+    height: 35px;
+    margin-right: 5px;
+    width: 115px;
+}
+.login_main .check_num_wrap input.check_num {
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    width: 113px;
+}
+.login_main .check_num_wrap img {
+    border: 1px solid #BABABA;
+    float: left;
+    margin-right: 5px;
+}
+.login_main .check_num_wrap .change_num {
+    color: #2672EC;
+    display: block;
+    height: 35px;
+    line-height: 35px;
+}
+.login_main .check_num_wrap .change_num:link {
+    color: #2672EC;
+    text-decoration: none;
+}
+.login_main .check_num_wrap .change_num:visited {
+    color: #2672EC;
+    text-decoration: none;
+}
+.login_main .check_num_wrap .change_num:hover {
+    color: #2672EC;
+    text-decoration: none;
+}
+.login_main .login_error {
+    color: #FF0000;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 10px;
+}
+.login_main .login_sumit {
+    background: url("../images/height_login_bg.jpg") repeat-x scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    font-family: '微软雅黑','宋体',arial,sans-serif;
+    font-size: 22px;
+    height: 51px;
+    width: 300px;
+}
+.login_main .ten_reg {
+    color: #2672EC;
+    font-size: 18px;
+}
+.login_main .ten_reg a:link {
+    color: #2672EC;
+    text-decoration: none;
+}
+.login_main .ten_reg a:visited {
+    color: #2672EC;
+    text-decoration: none;
+}
+.login_main .ten_reg a:hover {
+    color: #2672EC;
+    text-decoration: underline;
+}
+
+
+.login_main .input_border.selected {
+    border: 1px solid #FBB400;
+}
+.login_main .input_border.selected input {
+    border-color: #FBB400 #FFFFFF #FFFFFF #FBB400;
+    border-style: solid;
+    border-width: 1px;
+}

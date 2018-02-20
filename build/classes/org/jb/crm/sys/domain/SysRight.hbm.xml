@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.sys.domain">
+	<class name="SysRight" table="sys_right">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="rightText" column="right_text" />
+		<property name="rightUrl" column="right_url"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="parent" class="SysRight" column="parent_id"></many-to-one>
+		<set name="children">
+			<key column="parent_id"></key>
+			<one-to-many class="SysRight"/>
+		</set>
+		
+		
+		
+		
+		
+		
+		
+	</class>
+	
+</hibernate-mapping>

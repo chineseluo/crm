@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.cus.domain">
+	<class name="CstCustomer" table="cst_customer" >
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="custNo" column="cust_no" type="java.lang.String" not-null="true" length="17"/>
+		<property name="custName" column="cust_name" type="java.lang.String" not-null="true" length="100" unique="true"/>
+		<property name="custManagerName" column="cust_manager_name" type="java.lang.String" length="50"/>
+		<property name="custLevelLabel" column="cust_level_label" type="java.lang.String" length="50"/>
+		<property name="custSatisfy" column="cust_satisfy" type="java.lang.Integer" />
+		<property name="custCredit" column="cust_credit" type="java.lang.Integer"/>
+		<property name="custAddr" column="cust_addr" type="java.lang.String" length="300"/>
+		<property name="custZip" column="cust_zip" type="java.lang.String" length="10"/>
+		<property name="custTel" column="cust_tel" type="java.lang.String" length="50"/>
+		<property name="custFax" column="cust_fax"  type="java.lang.String" length="50"/>
+		<property name="custWebsite" column="cust_website" type="java.lang.String" length="50"/>
+		<property name="custLicenceNo" column="cust_licence_no" type="java.lang.String" length="50"/>
+		<property name="custChieftain" column="cust_chieftain" type="java.lang.String" length="50"/>
+		<property name="custBankroll" column="cust_bankroll" type="java.lang.Long"/>
+		<property name="custTurnover" column="cust_turnover" type="java.lang.Long"/>
+		<property name="custBank" column="cust_bank" type="java.lang.String" length="200"/>
+		<property name="custBankAccount" column="cust_bank_account" type="java.lang.String" length="50"/>
+		<property name="custLocalTaxNo" column="cust_local_tax_no" type="java.lang.String" length="50"/>
+		<property name="custNationalTaxNo" column="cust_national_tax_no" type="java.lang.String" length="50"/>
+		<property name="custStatus" column="cust_status" type="java.lang.String" length="1"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="custRegion" column="cust_region" class="org.jb.crm.basd.domain.BasDict" /> 
+		<many-to-one name="custManager" column="cust_manager_id" class="org.jb.crm.sys.domain.SysUser" /> 
+		<many-to-one name="custLevel" column="cust_level" class="org.jb.crm.basd.domain.BasDict" />
+		<set name="cstLinkmans" inverse="true">
+			<key column="lkm_cust_id"></key>
+			<one-to-many class="CstLinkman" />
+		</set>
+		<set name="cstLosts" inverse="true">
+			<key column="lst_cust_id"></key>
+			<one-to-many class="CstLost" />
+		</set>
+	</class>
+	
+</hibernate-mapping>

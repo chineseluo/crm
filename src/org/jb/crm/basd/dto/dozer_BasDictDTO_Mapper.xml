@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net  
+           http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.jb.crm.basd.domain.BasDict</class-a>
+		<class-b>org.jb.crm.basd.dto.BasDictDTO</class-b>
+
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>
+
+		<field>
+			<a>dictType</a>
+			<b>dictType</b>
+		</field>
+		<field>
+			<a>dictItem</a>
+			<b>dictItem</b>
+		</field>
+
+		<field>
+			<a>dictValue</a>
+			<b>dictValue</b>
+		</field>
+		
+		<field>
+			<a>dictIsEditable</a>
+			<b>dictIsEditable</b>
+		</field>
+		
+		<field>
+			<a>lastOperatorTime</a>
+			<b>lastOperatorTime</b>
+		</field>
+	</mapping>
+</mappings>  
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net  
+           http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.jb.crm.basd.domain.OrdersLine</class-a>
+		<class-b>org.jb.crm.basd.dto.OrdersLineDTO</class-b>
+		
+		<field>
+			<a>product</a>
+			<b>productDTO</b>
+		</field>
+	</mapping>
+</mappings>  
+

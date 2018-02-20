@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.cus.domain">
+	<class name="CstActivity" table="cst_artivity">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+
+		<property name="atvCustName" column="atv_cust_name" type="java.lang.String" length="100"/>
+		<property name="atvDate" column="atv_date" type="java.util.Date" not-null="true"/>
+		<property name="atvPlace" column="atv_place" type="java.lang.String" not-null="true" length="200"/>
+		<property name="atvTitle" column="atv_title" type="java.lang.String" not-null="true" length="500"/>
+		<property name="atvDesc" column="atv_desc" type="java.lang.String" length="2000"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="cstCustomer" column="atv_cust_id" class="CstCustomer"/> 
+	</class>
+	
+</hibernate-mapping>

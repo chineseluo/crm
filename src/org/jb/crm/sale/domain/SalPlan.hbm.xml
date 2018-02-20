@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.sale.domain">
+	<class name="SalPlan" table="sal_plan">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="plaToDo" column="pla_todo" length="500" not-null="true"/>
+		<property name="plaResult" column="pla_result" length="500"/>
+		<property name="plaDate" column="pla_date" not-null="true"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="salChance" column="pla_chc_id" class="SalChance"/>
+		
+		
+		
+		
+		
+		
+		
+	</class>
+	
+</hibernate-mapping>

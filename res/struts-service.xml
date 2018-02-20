@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="service" namespace="/service" extends="default">
+		<action name="CstServiceAction_*" method="{1}" class="cstServiceAction">
+			<result name="toAddCstServicePage" type="chain">CstServiceAction_toAddCstServicePage</result>
+			<result name="toDetailAddCstServicePage">/~cust/service/add.jsp</result>
+			
+			<result name="toDispatchCstServicePage" type="redirectAction">CstServiceAction_toDispatchCstServicePage</result>
+			<result name="toListDispatchCstServicePage">/~cust/service/dispatch.jsp</result>
+			
+			<result name="toDealCstServicePage" type="redirectAction">CstServiceAction_toDealCstServicePage</result>
+			<result name="toListDealCstServicePage">/~cust/service/deal.jsp</result>
+			<result name="toDetailDealCstServicePage">/~cust/service/deal_detail.jsp</result>
+			
+			<result name="toFeedbackCstServicePage" type="redirectAction">CstServiceAction_toFeedbackCstServicePage</result>
+			<result name="toListFeedbackCstServicePage">/~cust/service/feedback.jsp</result>
+			<result name="toDetailFeedbackCstServicePage">/~cust/service/feedback_detail.jsp</result>
+			
+			<result name="toArchCstServicePage" type="redirectAction">CstServiceAction_toArchCstServicePage</result>
+			<result name="toListArchCstServicePage">/~cust/service/arch.jsp</result>
+			<result name="toDetailArchCstServicePage">/~cust/service/detail.jsp</result>
+			
+			<result name="error">/error.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<!-- action -->
+	<bean id="basDictAction" class="org.jb.crm.basd.action.BasDictAction" 
+		scope="prototype">
+		<property name="basDictService" ref="basDictService"></property>		
+	</bean>	
+	
+	<bean id="ordersAction" class="org.jb.crm.basd.action.OrdersAction" 
+		scope="prototype">
+		<property name="ordersService" ref="ordersService"></property>
+		<property name="cstCustomerService" ref="cstCustomerService"></property>		
+	</bean>	
+	
+	<bean id="productAction" class="org.jb.crm.basd.action.ProductAction" 
+		scope="prototype">
+		<property name="productService" ref="productService"></property>		
+	</bean>	
+	
+	<bean id="storageAction" class="org.jb.crm.basd.action.StorageAction" 
+		scope="prototype">
+		<property name="storageService" ref="storageService"></property>		
+	</bean>	
+	
+	
+	
+	
+	<!-- service -->
+	<bean id="basDictService" class="org.jb.crm.basd.service.impl.BasDictServiceImpl">
+		<property name="basDictDao" ref="basDictDao"></property>		
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	
+	<bean id="ordersService" class="org.jb.crm.basd.service.impl.OrdersServiceImpl" 
+		scope="prototype">
+		<property name="ordersDao" ref="ordersDao"></property>	
+		<property name="mapper" ref="mapper"></property>	
+	</bean>	
+	
+	<bean id="productService" class="org.jb.crm.basd.service.impl.ProductServiceImpl">
+		<property name="productDao" ref="productDao"></property>		
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	
+	<bean id="storageService" class="org.jb.crm.basd.service.impl.StorageServiceImpl">
+		<property name="storageDao" ref="storageDao"></property>		
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- dao -->
+	<bean id="basDictDao" class="org.jb.crm.basd.dao.impl.BasDictDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>		
+	</bean>	
+	
+	<bean id="ordersDao" class="org.jb.crm.basd.dao.impl.OrdersDaoImpl" 
+		scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"></property>		
+	</bean>	
+	
+	<bean id="productDao" class="org.jb.crm.basd.dao.impl.ProductDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>		
+	</bean>	
+	
+	<bean id="storageDao" class="org.jb.crm.basd.dao.impl.StorageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>		
+	</bean>
+	
+
+</beans>

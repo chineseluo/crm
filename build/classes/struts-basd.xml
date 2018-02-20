@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="basd" namespace="/basd" extends="default">
+		
+		<action name="saveBasDictAction" class="basDictAction" method="saveBasDict">
+			<result name="success" type="redirectAction">loadAllBasDictsAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="loadAllBasDictsAction" class="basDictAction" method="loadAllBasDicts">
+			<result name="success">/~basd/dict.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="loadBasDictByIdAction" class="basDictAction" method="loadBasDictById">
+			<result name="success" type="json">
+				<param name="root">basDictDTO</param>
+			</result>
+			<result name="modify" >/~basd/dict_edit.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="loadDictTypeByTipAction" class="basDictAction" method="loadDictTypeByTip">
+			<result name="success" type="json">
+				<param name="root">dictTypeList</param>
+			</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="changeBasDictByIdAction" class="basDictAction" method="changeBasDict">
+			<result name="success" type="redirectAction">loadAllBasDictsAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="deleteBasDictAction" class="basDictAction" method="deteleBasDict">
+			<result name="success" type="redirectAction">loadAllBasDictsAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		<!-- orders -->
+		<action name="OrdersAction_*" class="ordersAction" method="{1}">
+			<result name="toListOrdersPage">/~cust/cust/orders.jsp</result>
+			<result name="toOrdersDetailPage">/~cust/cust/orders_detail.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<!-- product -->
+		<action name="loadAllProductAction" class="productAction" method="loadAllProductByPage">
+			<result name="success">/~basd/product.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="loadProductByConditionAction" class="productAction" method="loadAllProductByPage">
+			<result name="success">/~basd/product.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+		<action name="findProductAndStorageAction" class="productAction" method="findProductAndStorageByPage">
+			<result name="success">/~basd/storage.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="loadProductAndStorageByConditionAction" class="productAction" method="findProductAndStorageByPage">
+			<result name="success">/~basd/storage.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		
+	</package>
+
+</struts>

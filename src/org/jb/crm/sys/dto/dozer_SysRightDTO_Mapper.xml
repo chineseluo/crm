@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net  
+           http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.jb.crm.sys.domain.SysRight</class-a>
+		<class-b>org.jb.crm.sys.dto.SysRightDTO</class-b>
+
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>
+
+		<field>
+			<a>rightText</a>
+			<b>rightText</b>
+		</field>
+		<field>
+			<a>rightUrl</a>
+			<b>rightUrl</b>
+		</field>
+
+		<field>
+			<a>lastOperatorTime</a>
+			<b>lastOperatorTime</b>
+		</field>
+		
+		<field>
+			<a>parent</a>
+			<b>parent</b>
+		</field>
+
+		<field>
+			<a>children</a>
+			<b>children</b>
+		</field>
+
+	</mapping>
+</mappings>  
+

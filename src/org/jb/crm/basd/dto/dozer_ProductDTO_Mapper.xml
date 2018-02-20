@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net  
+           http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.jb.crm.basd.domain.Product</class-a>
+		<class-b>org.jb.crm.basd.dto.ProductDTO</class-b>
+
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>
+
+		<field>
+			<a>prodName</a>
+			<b>prodName</b>
+		</field>
+		<field>
+			<a>prodType</a>
+			<b>prodType</b>
+		</field>
+
+		<field>
+			<a>prodBatch</a>
+			<b>prodBatch</b>
+		</field>
+		
+		<field>
+			<a>prodUnit</a>
+			<b>prodUnit</b>
+		</field>
+		
+		<field>
+			<a>prodPrice</a>
+			<b>prodPrice</b>
+		</field>
+		<field>
+			<a>prodMemo</a>
+			<b>prodMemo</b>
+		</field>
+		<field>
+			<a>storage</a>
+			<b>storage</b>
+		</field>
+		<field>
+			<a>lastOperatorTime</a>
+			<b>lastOperatorTime</b>
+		</field>
+	</mapping>
+</mappings>  
+

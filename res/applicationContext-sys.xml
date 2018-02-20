@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<!-- action -->
+	<bean id="sysRightAction" class="org.jb.crm.sys.action.SysRightAction"
+		scope="prototype">
+		<property name="sysRightService" ref="sysRightService"></property>
+	</bean>
+
+	<bean id="sysRoleAction" class="org.jb.crm.sys.action.SysRoleAction"
+		scope="prototype">
+		<property name="sysRoleService" ref="sysRoleService"></property>
+	</bean>
+
+	<bean id="sysUserAction" class="org.jb.crm.sys.action.SysUserAction"
+		scope="prototype">
+		<property name="sysUserService" ref="sysUserService"></property>
+		<property name="sysRoleService" ref="sysRoleService"></property>
+	</bean>
+
+
+	<!-- service -->
+	<bean id="sysRightService" class="org.jb.crm.sys.service.impl.SysRightServiceImpl">
+		<property name="sysRightDao" ref="sysRightDao" />
+		<property name="sysRoleDao" ref="sysRoleDao"></property>
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	<bean id="sysRoleService" class="org.jb.crm.sys.service.impl.SysRoleServiceImpl">
+		<property name="sysRoleDao" ref="sysRoleDao" />
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+
+	<bean id="sysUserService" class="org.jb.crm.sys.service.impl.SysUserServiceImpl">
+		<property name="sysUserDao" ref="sysUserDao"></property>
+		<property name="sysRoleDao" ref="sysRoleDao" />
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+
+	<!-- dao -->
+	<bean id="sysRightDao" class="org.jb.crm.sys.dao.impl.SysRightDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="sysRoleDao" class="org.jb.crm.sys.dao.impl.SysRoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="sysUserDao" class="org.jb.crm.sys.dao.impl.SysUserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+</beans>

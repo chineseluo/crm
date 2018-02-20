@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<!-- 配置c3p0数据源 -->
+	<bean id="dataSource" destroy-method="close"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!--连接数据库的驱动类 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<!--连接数据库的url -->
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/crm" />
+		<!--连接数据库的用户名 -->
+		<property name="user" value="root" />
+		<!--连接数据库的密码 -->
+		<property name="password" value="root" />
+	</bean>
+
+	<!-- sessionFactory的配置 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 将hibernate.cfg.xml这个配置与spring关联 -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+
+	<!-- 配置声明式事务 -->
+	<bean id="myTxManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<aop:config>
+		<aop:pointcut id="productServiceMethods" expression="execution(* org.jb.crm.*.service.impl.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="productServiceMethods" />
+	</aop:config>
+
+	<tx:advice id="txAdvice" transaction-manager="myTxManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- Dozer与Spring整合 -->
+	<bean id="mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
+		<property name="mappingFiles">
+			<list>
+				<value>classpath*:org/jb/crm/*/dto/dozer_*.xml</value>
+			</list>
+		</property>
+	</bean>
+
+
+	  <!-- 启动触发器的配置开始 -->  
+    <bean name="startQuertz" lazy-init="false" autowire="no"  
+        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+        <property name="triggers">  
+            <list>  
+                <ref bean="myJobTrigger" />  
+            </list>  
+        </property>  
+    </bean>  
+    <!-- 启动触发器的配置结束 -->  
+  
+    <!-- 调度的配置开始 -->  
+    <!--  
+        quartz-1.8以前的配置   
+    <bean id="myJobTrigger"  
+        class="org.springframework.scheduling.quartz.CronTriggerBean">  
+        <property name="jobDetail">  
+            <ref bean="myJobDetail" />  
+        </property>  
+        <property name="cronExpression">  
+            <value>0/1 * * * * ?</value>  
+        </property>  
+    </bean>  
+    -->  
+    <!-- quartz-2.x的配置 -->  
+    <bean id="myJobTrigger"  
+        class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
+        <property name="jobDetail">  
+            <ref bean="myJobDetail" />  
+        </property>  
+        <property name="cronExpression">  
+            <value>0 0 2 * * ? * 7</value>  
+        </property>  
+    </bean>  
+    <!-- 调度的配置结束 -->  
+  
+    <!-- job的配置开始 -->  
+    <bean id="myJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="cstLostService" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>generatePreWarningCstLost</value>  
+        </property>  
+    </bean>   
+    <!-- job的配置结束 -->  
+  
+
+
+
+	<!-- 由主配置文件，关联子配置文件 -->
+	<import resource="applicationContext-sys.xml" />
+	<import resource="applicationContext-basd.xml" />
+	<import resource="applicationContext-cus.xml" />
+	<import resource="applicationContext-rept.xml" />
+	<import resource="applicationContext-sale.xml" />
+	<import resource="applicationContext-service.xml" />
+
+</beans>

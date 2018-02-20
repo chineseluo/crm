@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<!-- action -->
+	<bean id="cstCustomerAction" class="org.jb.crm.cus.action.CstCustomerAction"
+		scope="prototype">
+		<property name="cstCustomerService" ref="cstCustomerService"></property>
+		<property name="basDictService" ref="basDictService"></property>
+		<property name="sysUserService" ref="sysUserService"></property>
+	</bean>
+	
+	<bean id="cstLinkmanAction" class="org.jb.crm.cus.action.CstLinkmanAction"
+		scope="prototype">
+		<property name="cstCustomerService" ref="cstCustomerService"></property>
+		<property name="cstLinkmanService" ref="cstLinkmanService"></property>
+	</bean>
+	<bean id="cstActivityAction" class="org.jb.crm.cus.action.CstActivityAction"
+		scope="prototype">
+		<property name="cstCustomerService" ref="cstCustomerService"></property>
+		<property name="cstActivityService" ref="cstActivityService"></property>
+	</bean>
+	<bean id="cstLostAction" class="org.jb.crm.cus.action.CstLostAction"
+		scope="prototype">
+		<property name="cstLostService" ref="cstLostService"></property>
+	</bean>
+
+	<!-- service -->
+	<bean id="cstCustomerService" class="org.jb.crm.cus.service.impl.CstCustomerServiceImpl"
+		scope="prototype">
+		<property name="cstCustomerDao" ref="cstCustomerDao"></property>
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	<bean id="cstLinkmanService" class="org.jb.crm.cus.service.impl.CstLinkmanServiceImpl"
+		scope="prototype">
+		<property name="cstLinkmanDao" ref="cstLinkmanDao"></property>
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	<bean id="cstActivityService" class="org.jb.crm.cus.service.impl.CstActivityServiceImpl"
+		scope="prototype">
+		<property name="cstActivityDao" ref="cstActivityDao"></property>
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	<bean id="cstLostService" class="org.jb.crm.cus.service.impl.CstLostServiceImpl"
+		scope="prototype">
+		<property name="cstLostDao" ref="cstLostDao"></property>
+		<property name="cstCustomerDao" ref="cstCustomerDao"></property>
+		<property name="mapper" ref="mapper"></property>
+	</bean>
+	
+	<!-- dao -->
+	<bean id="cstCustomerDao" class="org.jb.crm.cus.dao.impl.CstCustomerDaoImpl"
+		scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cstLinkmanDao" class="org.jb.crm.cus.dao.impl.CstLinkmanDaoImpl"
+		scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cstActivityDao" class="org.jb.crm.cus.dao.impl.CstActivityDaoImpl"
+		scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cstLostDao" class="org.jb.crm.cus.dao.impl.CstLostDaoImpl"
+		scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+
+</beans>

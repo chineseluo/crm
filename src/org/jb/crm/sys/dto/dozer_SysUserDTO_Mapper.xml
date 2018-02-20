@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net  
+           http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.jb.crm.sys.domain.SysUser</class-a>
+		<class-b>org.jb.crm.sys.dto.SysUserDTO</class-b>
+
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>
+
+		<field>
+			<a>usrName</a>
+			<b>usrName</b>
+		</field>
+		<field>
+			<a>usrPassword</a>
+			<b>usrPassword</b>
+		</field>
+
+		<field>
+			<a>lastOperatorTime</a>
+			<b>lastOperatorTime</b>
+		</field>
+		
+		<field>
+			<a>usrFlag</a>
+			<b>usrFlag</b>
+		</field>
+
+		<field>
+			<a>sysRole</a>
+			<b>sysRole</b>
+		</field>
+
+	</mapping>
+</mappings>  
+

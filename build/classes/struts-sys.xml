@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="sys" namespace="/sys" extends="default">
+		<action name="loadRightsAction" class="sysRightAction" method="loadRights">
+			<result name="success" type="json">
+				<param name="root">resultList</param>
+			</result>
+			<result name="input" type="redirect">/error.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="addRoleAction" class="sysRoleAction" method="addRole">
+			<result name="success" type="redirectAction">loadAllRolesAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="loadAllRolesAction" class="sysRoleAction" method="loadAllRoles">
+			<result name="success">/~sys/role/list.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+
+		<action name="loadRightsByRoleAction" class="sysRightAction"
+			method="loadRightsByRole">
+			<result name="success" type="json">
+				<param name="root">resultList</param>
+			</result>
+			<result name="input" type="redirect">/error.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="loadRoleByIdAction" class="sysRoleAction" method="loadRoleById">
+			<result name="detail">/~sys/role/role_detail.jsp</result>
+			<result name="modify">/~sys/role/role_edit.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+
+		<action name="modifyRoleAction" class="sysRoleAction" method="modifyRole">
+			<result name="success" type="redirectAction">loadAllRolesAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="deleteRoleAction" class="sysRoleAction" method="deleteRole">
+			<result name="success" type="redirectAction">loadAllRolesAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="loadAllNormalRoleAction" class="sysRoleAction"
+			method="loadAllNormalRole">
+			<result name="success">/~sys/user/user_add.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<!-- userAction -->
+		<action name="saveUserAction" class="sysUserAction" method="saveUser">
+			<result name="success" type="redirectAction">loadAllUsersAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="loginAction" class="sysUserAction" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		
+		<action name="loginoutAction" class="sysUserAction" method="loginout">
+			<result name="success">/login.jsp</result>
+			<result name="error" type="redirect">/login.jsp</result>
+		</action>
+
+		<action name="loadAllUsersAction" class="sysUserAction" method="loadAllUsers">
+			<result name="success">/~sys/user/list.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+
+		<action name="loadUserByIdAction" class="sysUserAction" method="loadUserById">
+			<result name="detail">/~sys/user/user_detail.jsp</result>
+			<result name="modify">/~sys/user/user_edit.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="modifyUserAction" class="sysUserAction" method="modifyUser">
+			<result name="success" type="redirectAction">loadAllUsersAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		<action name="deleteUserAction" class="sysUserAction" method="deleteUser">
+			<result name="success" type="redirectAction">loadAllUsersAction</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+	</package>
+
+</struts>

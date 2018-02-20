@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.basd.domain">
+	<class name="Storage" table="storage">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="stkWarehouse" column="stk_warehouse"  not-null="true" length="50" ></property>
+		<property name="stkWare" column="stk_ware"  not-null="true" length="50" />
+		<property name="stkCount" column="stk_count"  not-null="true" />
+		<property name="stkMemo" column="stk_memo"  length="200" />
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+
+	</class>
+	
+</hibernate-mapping>

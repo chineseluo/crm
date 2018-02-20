@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.basd.domain">
+	<class name="Product" table="product">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+
+		<property name="prodName" column="prod_name"  not-null="true" length="200"/>
+		<property name="prodType" column="prod_type"  not-null="true" length="100"/>
+		<property name="prodBatch" column="prod_batch"  length="100"/>
+		<property name="prodUnit" column="prod_unit"  length="50"/>
+		<property name="prodPrice" column="prod_price"  />
+		<property name="prodMemo" column="prod_memo"  length="200"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<many-to-one name="storage" column="stk_prod_id" class="Storage"></many-to-one>
+	</class>
+	
+</hibernate-mapping>

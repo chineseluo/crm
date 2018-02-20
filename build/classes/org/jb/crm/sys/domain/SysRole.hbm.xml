@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jb.crm.sys.domain">
+	<class name="SysRole" table="sys_role">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="roleName" column="role_name" />
+		<property name="roleDesc" column="role_desc"/>
+		<property name="roleFlag" column="role_flag"/>
+		<!-- 排序的依据 -->
+		<property name="lastOperatorTime" column="last_operator_time"></property>
+		<!-- 关联映射 -->
+		<set name="sysRights" table="sys_role_right">
+			<key column="role_id"></key>
+			<many-to-many class="SysRight" column="right_id"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>

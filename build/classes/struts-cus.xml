@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="cus" namespace="/cus" extends="default">
+		<action name="CstLostAction_*" method="{1}" class="cstLostAction">
+			<result name="toListCstLostPage">/~cust/lost/list.jsp</result>
+			<result name="toModifyPutoffCstLostPage">/~cust/lost/relay.jsp</result>
+			<result name="toConfirmPutoffCstLostPage">/~cust/lost/confirm.jsp</result>
+			<result name="loadCstLostsByManager" type="redirectAction">CstLostAction_loadCstLostsByManager</result>
+		</action>
+	
+		<action name="CstLinkmanAction_*" method="{1}" class="cstLinkmanAction">
+			<result name="toListCstLinkmanPage">/~cust/cust/linkman.jsp</result>
+			<result name="toAddCstLinkmanPage">/~cust/cust/linkman_add.jsp</result>
+			<result name="toModifyLinkmanPage">/~cust/cust/linkman_edit.jsp</result>
+			<result name="loadAllCstLinkmans" type="chain">CstLinkmanAction_loadAllCstLinkmans</result>
+		</action>
+		
+		<action name="CstActivityAction_*" method="{1}" class="cstActivityAction">
+			<result name="toListCstActivityPage">/~cust/cust/activities.jsp</result>
+			<result name="toAddCstActivityPage">/~cust/cust/activities_add.jsp</result>
+			<result name="toModifyActivityPage">/~cust/cust/activities_edit.jsp</result>
+			<result name="loadAllCstActivitys" type="chain">CstActivityAction_loadAllCstActivitys</result>
+		</action>
+		
+		<action name="CstCustomerAction_*" method="{1}" class="cstCustomerAction">
+			<result name="toListCstCustomerPage">/~cust/cust/list.jsp</result>
+			<result name="toModifyCstCustomerPage">/~cust/cust/edit.jsp</result>
+			<result name="loadAllCstCustomers" type="redirectAction">CstCustomerAction_loadAllCstCustomers</result>
+			<result name="loadCstCustomersByManager" type="redirectAction">CstCustomerAction_loadCstCustomersByManager</result>
+		</action>
+	</package>
+
+</struts>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net  
+           http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.jb.crm.cus.domain.CstCustomer</class-a>
+		<class-b>org.jb.crm.cus.dto.CstCustomerDTO</class-b>
+		<field>
+			<a>cstLinkmans</a>
+			<b>cstLinkmanDTOs</b>
+		</field>
+		<field>
+			<a>cstLosts</a>
+			<b>cstLostDTOs</b>
+		</field>
+	</mapping>
+</mappings>  
+
